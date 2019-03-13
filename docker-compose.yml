@@ -9,7 +9,8 @@ services:
     - 60000:60000/tcp
   slave01:
     image: malfurionpd/jmeter-slave
-    depends_on: master
+    depends_on: 
+      - master
     stdin_open: true
     network_mode: bridge
     tty: true
@@ -19,7 +20,8 @@ services:
 
   slave02:
     image: malfurionpd/jmeter-slave
-    depends_on: master
+    depends_on: 
+      - master
     stdin_open: true
     network_mode: bridge
     tty: true
