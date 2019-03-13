@@ -3,7 +3,7 @@ services:
   master:
     image: malfurionpd/jmeter-master
     stdin_open: true
-    network_mode: host
+    network_mode: bridge
     tty: true
     ports:
     - 60000:60000/tcp
@@ -11,6 +11,7 @@ services:
     image: malfurionpd/jmeter-slave
     depends_on: master
     stdin_open: true
+    network_mode: bridge
     tty: true
     ports:
     - 10991:1099/tcp
@@ -20,6 +21,7 @@ services:
     image: malfurionpd/jmeter-slave
     depends_on: master
     stdin_open: true
+    network_mode: bridge
     tty: true
     ports:
     - 10992:1099/tcp
